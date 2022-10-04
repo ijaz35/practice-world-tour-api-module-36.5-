@@ -26,7 +26,7 @@ function displayData(drinks) {
         errorMsg.style.fontWeight = 'bolder';
     } else {
         errorMsg.style.display = 'none';
-        drinks.forEach(drink => {
+        drinks?.forEach(drink => {
             // console.log(drink.idDrink);
             const drinkDiv = document.createElement('div');
             drinkDiv.classList.add('col');
@@ -34,9 +34,8 @@ function displayData(drinks) {
             <div class="card" onclick="loadDrink(${drink.idDrink})">
                 <img src="${drink.strDrinkThumb}" class="card-img-top" alt="drink image">
                 <div class="card-body">
-                    <h5 class="card-title">${drink.strDrink}</h5>
-                    <p class="card-text">${drink.strInstructions
-                    .slice(0, 200)}</p>
+                    <h5 class="card-title">${drink.strDrink ? drink.strDrink : ''}</h5>
+                    <p class="card-text">${drink.strInstructions.slice(0, 200) ? drink.strInstructions : ''}</p>
                 </div>
             </div>
             `;
